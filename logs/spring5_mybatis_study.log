@@ -1,8 +1,53 @@
-[DEBUG] [2021-05-10 17:16] testDataSource()
-[DEBUG] [2021-05-10 17:16] DataSource HikariDataSource (HikariPool-1)
-[DEBUG] [2021-05-10 17:16] LoginTimeout 30
-[DEBUG] [2021-05-10 17:16] testDataSource()
-[DEBUG] [2021-05-10 17:16] DataSource HikariDataSource (HikariPool-1)
-[DEBUG] [2021-05-10 17:16] LoginTimeout 30
-[DEBUG] [2021-05-10 17:16] testsqlSession()
-[DEBUG] [2021-05-10 17:16] session org.apache.ibatis.session.defaults.DefaultSqlSession@2b4c1d96
+[DEBUG] [2021-05-11 11:15] testsqlSession()
+[DEBUG] [2021-05-11 11:15] session org.apache.ibatis.session.defaults.DefaultSqlSession@16c63f5
+[DEBUG] [2021-05-11 11:15] testDataSource()
+[DEBUG] [2021-05-11 11:15] DataSource HikariDataSource (HikariPool-1)
+[DEBUG] [2021-05-11 11:15] LoginTimeout 30
+[DEBUG] [2021-05-11 11:17] testsqlSession()
+[DEBUG] [2021-05-11 11:17] session org.apache.ibatis.session.defaults.DefaultSqlSession@45fd9a4d
+[DEBUG] [2021-05-11 11:17] testDataSource()
+[DEBUG] [2021-05-11 11:17] DataSource HikariDataSource (HikariPool-1)
+[DEBUG] [2021-05-11 11:17] LoginTimeout 30
+[DEBUG] [2021-05-11 13:49] testselectStudentById()
+[DEBUG] [2021-05-11 13:49] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students where stud_id=?
+[DEBUG] [2021-05-11 13:49] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-11 13:49] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-11 13:49] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[DEBUG] [2021-05-11 13:49] <==      Total: 1
+[DEBUG] [2021-05-11 13:49] Student [1, Timothy, timothy@gmail.com, Mon Apr 25 00:00:00 KST 1988, null]
+[DEBUG] [2021-05-11 14:06] testselectStudentById()
+[DEBUG] [2021-05-11 14:06] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students where stud_id=?
+[DEBUG] [2021-05-11 14:06] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-11 14:06] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-11 14:06] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[DEBUG] [2021-05-11 14:06] <==      Total: 1
+[DEBUG] [2021-05-11 14:06] Student [1, Timothy, timothy@gmail.com, Mon Apr 25 00:00:00 KST 1988, null]
+[DEBUG] [2021-05-11 14:07] testDataSource()
+[DEBUG] [2021-05-11 14:07] DataSource HikariDataSource (HikariPool-1)
+[DEBUG] [2021-05-11 14:07] LoginTimeout 30
+[DEBUG] [2021-05-11 14:07] testsqlSession()
+[DEBUG] [2021-05-11 14:07] session org.apache.ibatis.session.defaults.DefaultSqlSession@3bc4be5d
+[DEBUG] [2021-05-11 14:08] testDataSource()
+[DEBUG] [2021-05-11 14:08] DataSource HikariDataSource (HikariPool-1)
+[DEBUG] [2021-05-11 14:08] LoginTimeout 30
+[DEBUG] [2021-05-11 14:08] testsqlSession()
+[DEBUG] [2021-05-11 14:08] session org.apache.ibatis.session.defaults.DefaultSqlSession@3bc4be5d
+[DEBUG] [2021-05-11 14:16] testselectStudentById()
+[DEBUG] [2021-05-11 14:16] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students where stud_id=?
+[DEBUG] [2021-05-11 14:16] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-11 14:16] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-11 14:16] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[DEBUG] [2021-05-11 14:16] <==      Total: 1
+[DEBUG] [2021-05-11 14:16] Student [1, Timothy, timothy@gmail.com, Mon Apr 25 00:00:00 KST 1988, null]
+[DEBUG] [2021-05-11 14:24] testDataSource()
+[DEBUG] [2021-05-11 14:24] DataSource HikariDataSource (HikariPool-1)
+[DEBUG] [2021-05-11 14:24] LoginTimeout 30
+[DEBUG] [2021-05-11 14:24] testsqlSession()
+[DEBUG] [2021-05-11 14:24] session org.apache.ibatis.session.defaults.DefaultSqlSession@53fbde75
+[DEBUG] [2021-05-11 14:24] testselectStudentById()
+[DEBUG] [2021-05-11 14:24] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students where stud_id=?
+[DEBUG] [2021-05-11 14:24] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-11 14:24] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-11 14:24] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[DEBUG] [2021-05-11 14:24] <==      Total: 1
+[DEBUG] [2021-05-11 14:24] Student [1, Timothy, timothy@gmail.com, Mon Apr 25 00:00:00 KST 1988, 123-123-1234]
