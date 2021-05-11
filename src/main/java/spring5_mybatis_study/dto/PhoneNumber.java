@@ -25,7 +25,6 @@ public class PhoneNumber {
 				this.number = parts[2];
 		}
 	}
-	
 
 	public String getCountryCode() {
 		return countryCode;

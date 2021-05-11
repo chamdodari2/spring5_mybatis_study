@@ -15,12 +15,12 @@ public class PhoneTypeHandler extends BaseTypeHandler<PhoneNumber> {
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, PhoneNumber parameter, JdbcType jdbcType)
 			throws SQLException {
-		ps.setString(i, parameter.toString());//toString:countryCode, stateCode, number
+		ps.setString(i, parameter.toString());// toString:countryCode, stateCode, number
 	}
 
 	@Override
 	public PhoneNumber getNullableResult(ResultSet rs, String columnName) throws SQLException {
-		
+
 		return new PhoneNumber(rs.getString(columnName));
 	}
 
@@ -31,9 +31,9 @@ public class PhoneTypeHandler extends BaseTypeHandler<PhoneNumber> {
 	}
 
 	@Override
-	public PhoneNumber getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {//프로시저 처리쓰
+	public PhoneNumber getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {// 프로시저 처리쓰
 		// TODO Auto-generated method stub
-		return  new PhoneNumber(cs.getString(columnIndex));
+		return new PhoneNumber(cs.getString(columnIndex));
 	}
 
 }

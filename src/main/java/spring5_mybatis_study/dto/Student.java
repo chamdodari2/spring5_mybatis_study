@@ -9,11 +9,16 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		private String email;
 		private PhoneNumber phone;
 		private Date dob;
+		private Address address;
 		
 		
+		
+
 		public int getStudId() {
 			return studId;
 		}
+
+
 
 
 		public void setStudId(int studId) {
@@ -21,9 +26,13 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		}
 
 
+
+
 		public String getName() {
 			return name;
 		}
+
+
 
 
 		public void setName(String name) {
@@ -31,9 +40,13 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		}
 
 
+
+
 		public String getEmail() {
 			return email;
 		}
+
+
 
 
 		public void setEmail(String email) {
@@ -41,9 +54,13 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		}
 
 
+
+
 		public PhoneNumber getPhone() {
 			return phone;
 		}
+
+
 
 
 		public void setPhone(PhoneNumber phone) {
@@ -51,9 +68,13 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		}
 
 
+
+
 		public Date getDob() {
 			return dob;
 		}
+
+
 
 
 		public void setDob(Date dob) {
@@ -61,9 +82,25 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		}
 
 
+
+
+		public Address getAddress() {
+			return address;
+		}
+
+
+
+
+		public void setAddress(Address address) {
+			this.address = address;
+		}
+
+
+
+
 		//setter and getter method
 		@Override
 		public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s]", studId, name, email,dob, phone);
+		return String.format("Student [%s, %s, %s, %s, %s %s]", studId, name, email,dob, phone,address);
 		}
 }
