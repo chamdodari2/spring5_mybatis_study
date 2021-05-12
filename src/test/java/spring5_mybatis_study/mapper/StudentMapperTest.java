@@ -139,7 +139,7 @@ public class StudentMapperTest {
 		student.setStudId(1);
 		Student seletedStd = mapper.selectStudentByIdAssociation(student);
 
-		Assert.assertNotNull(seletedStd);
+	
 		log.debug(seletedStd.toString());
 	}
 
