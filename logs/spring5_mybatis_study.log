@@ -737,3 +737,97 @@
 [DEBUG] [2021-05-12 13:28] <==      Total: 2
 [TRACE] [2021-05-12 13:28] 1:John
 [DEBUG] [2021-05-12 13:28] Tutor [1, John, john@gmail.com, null, [Course [1, Quickstart Core Java, Core Java Programming, Fri Mar 01 00:00:00 KST 2013, Mon Apr 15 00:00:00 KST 2013, 0], Course [2, Quickstart JavaEE6, Enterprise App Development using JavaEE6, Mon Apr 01 00:00:00 KST 2013, Fri Aug 30 00:00:00 KST 2013, 0]]]
+[DEBUG] [2021-05-12 15:11] test10SelectStudentByMap()
+[DEBUG] [2021-05-12 15:11] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name=? AND email=#email
+[DEBUG] [2021-05-12 15:11] ==> Parameters: Timothy(String)
+[DEBUG] [2021-05-12 15:11] test11SelectAllStudentByMap()
+[DEBUG] [2021-05-12 15:11] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name=? AND email=#email
+[DEBUG] [2021-05-12 15:11] ==> Parameters: Timothy(String)
+[DEBUG] [2021-05-12 15:14] test10SelectStudentByMap()
+[DEBUG] [2021-05-12 15:14] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:14] ==> Parameters: Timothy(String), timothy@gamil.com(String)
+[DEBUG] [2021-05-12 15:14] <==      Total: 0
+[DEBUG] [2021-05-12 15:14] test11SelectAllStudentByMap()
+[DEBUG] [2021-05-12 15:14] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:14] ==> Parameters: Timothy(String), timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:14] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:14] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:14] <==      Total: 1
+[DEBUG] [2021-05-12 15:14] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE email = ?
+[DEBUG] [2021-05-12 15:14] ==> Parameters: timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:14] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:14] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:14] <==      Total: 1
+[DEBUG] [2021-05-12 15:14] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students
+[DEBUG] [2021-05-12 15:14] ==> Parameters: 
+[TRACE] [2021-05-12 15:14] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:14] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[TRACE] [2021-05-12 15:14] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[TRACE] [2021-05-12 15:14] <==        Row: 3, test, test@test.co.kr, 1990-03-28, 010-1234-5678
+[DEBUG] [2021-05-12 15:14] <==      Total: 3
+[DEBUG] [2021-05-12 15:17] test10SelectStudentByMap()
+[DEBUG] [2021-05-12 15:17] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:17] ==> Parameters: Timothy(String), timothy@gamil.com(String)
+[DEBUG] [2021-05-12 15:17] <==      Total: 0
+[DEBUG] [2021-05-12 15:17] test11SelectAllStudentByMap()
+[DEBUG] [2021-05-12 15:17] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:17] ==> Parameters: Timothy(String), timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:17] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:17] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:17] <==      Total: 1
+[DEBUG] [2021-05-12 15:17] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ?
+[DEBUG] [2021-05-12 15:17] ==> Parameters: Timothy(String)
+[TRACE] [2021-05-12 15:17] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:17] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:17] <==      Total: 1
+[DEBUG] [2021-05-12 15:17] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE email = ?
+[DEBUG] [2021-05-12 15:17] ==> Parameters: timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:17] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:17] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:17] <==      Total: 1
+[DEBUG] [2021-05-12 15:17] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students
+[DEBUG] [2021-05-12 15:17] ==> Parameters: 
+[TRACE] [2021-05-12 15:17] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:17] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[TRACE] [2021-05-12 15:17] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[TRACE] [2021-05-12 15:17] <==        Row: 3, test, test@test.co.kr, 1990-03-28, 010-1234-5678
+[DEBUG] [2021-05-12 15:17] <==      Total: 3
+[DEBUG] [2021-05-12 15:25] test10SelectStudentByMap()
+[DEBUG] [2021-05-12 15:25] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:25] ==> Parameters: Timothy(String), timothy@gamil.com(String)
+[DEBUG] [2021-05-12 15:25] <==      Total: 0
+[DEBUG] [2021-05-12 15:25] test11SelectAllStudentByMap()
+[DEBUG] [2021-05-12 15:25] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ? AND email = ?
+[DEBUG] [2021-05-12 15:25] ==> Parameters: Timothy(String), timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:25] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:25] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:25] <==      Total: 1
+[DEBUG] [2021-05-12 15:25] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE name = ?
+[DEBUG] [2021-05-12 15:25] ==> Parameters: Timothy(String)
+[TRACE] [2021-05-12 15:25] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:25] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:25] <==      Total: 1
+[DEBUG] [2021-05-12 15:25] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE email = ?
+[DEBUG] [2021-05-12 15:25] ==> Parameters: timothy@gmail.com(String)
+[TRACE] [2021-05-12 15:25] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:25] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 15:25] <==      Total: 1
+[DEBUG] [2021-05-12 15:25] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students
+[DEBUG] [2021-05-12 15:25] ==> Parameters: 
+[TRACE] [2021-05-12 15:25] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 15:25] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[TRACE] [2021-05-12 15:25] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[TRACE] [2021-05-12 15:25] <==        Row: 3, test, test@test.co.kr, 1990-03-28, 010-1234-5678
+[DEBUG] [2021-05-12 15:25] <==      Total: 3
+[DEBUG] [2021-05-12 16:56] test01SelectStudentForMap()
+[DEBUG] [2021-05-12 16:56] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE stud_id=?
+[DEBUG] [2021-05-12 16:56] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-12 16:56] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 16:56] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 16:56] <==      Total: 1
+[DEBUG] [2021-05-12 16:56] test02SelectStudentForMa2p()
+[DEBUG] [2021-05-12 16:56] ==>  Preparing: select stud_id as studId, name, email, dob, phone from students WHERE stud_id=?
+[DEBUG] [2021-05-12 16:56] ==> Parameters: 1(Integer)
+[TRACE] [2021-05-12 16:56] <==    Columns: studId, name, email, dob, phone
+[TRACE] [2021-05-12 16:56] <==        Row: 1, Timothy, timothy@gmail.com, 1988-05-25, 123-123-1234
+[DEBUG] [2021-05-12 16:56] <==      Total: 1

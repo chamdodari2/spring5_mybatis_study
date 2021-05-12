@@ -3,6 +3,7 @@ package spring5_mybatis_study.mapper;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -39,126 +40,173 @@ public class StudentMapperTest {
 	private StudentMapper mapper;
 //	private StudentMapper m = StudentMapperImpl.getinstans
 
-	@Test
-	public void test01selectStudentById() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//	@Test
+//	public void test01selectStudentById() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Student student = new Student();
+//		student.setStudId(1);
+//		Student selectStudent = mapper.selectStudentById(student);
+//		log.debug(selectStudent.toString());
+//		Assert.assertNotNull(student);
+//	}
+//
+//	@Test
+//	public void test02selectStudentByIdwithResultMap() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Student student = new Student();
+//		student.setStudId(1);
+//
+//		Student selectedStd = mapper.selectStudentByIdWithResultMap(student);
+//		log.debug(selectedStd.toString());
+//		Assert.assertNotNull(student);
+//
+//	}
+//
+//	@Test
+//	public void test03SelectStudentByAll() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		List<Student> list = mapper.selectStudentByAll();
+//		Assert.assertNotNull(list);
+//		list.stream().forEach(System.out::println);
+//
+//	}
+//
+//	@Test
+//	public void test04InsertStudent() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Calendar newDate = GregorianCalendar.getInstance();
+//		newDate.set(1990, 2, 28);
+//		Student student = new Student();
+//		student.setStudId(3);
+//		student.setName("홍길동3");
+//		student.setEmail("lee@test.co.kr");
+//		student.setPhone(new PhoneNumber("010-1234-1234"));
+//		student.setDob(newDate.getTime());
+//		int res = mapper.insertStudent(student);
+//		Assert.assertEquals(1, res);
+//	}
+//
+//	@Test
+//	public void test6DeleteStudent() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		int deleteStudent = mapper.deleteStudent(3);
+//		Assert.assertSame(1, deleteStudent);
+//
+//	}
+//
+//	@Test
+//	public void test5UpdateStudent() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Student student = new Student();
+//		student.setStudId(1);
+//		student.setName("Timothy");
+//		student.setEmail("test@test.co.kr");
+//		student.setPhone(new PhoneNumber("987-654-3211"));
+//		student.setDob(new Date());
+//		int result = mapper.updateStudent(student);
+//		Assert.assertSame(1, result);
+//		student.setEmail("timothy@gmail.com");
+//		student.setPhone(new PhoneNumber("123-123-1234"));
+//		student.setDob(new GregorianCalendar(1988, 04, 25).getTime());
+//		result = mapper.updateStudent(student);
+//		Assert.assertSame(1, result);
+//
+//	}
+//
+//	@Test
+//	public void test7SelectStudentByAllForHashMap() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		List<Map<String, Object>> list = mapper.selectStudentByAllForHashMap();
+//		Assert.assertNotNull(list);
+//		for (Map<String, Object> map : list) {
+//			for (Entry<String, Object> e : map.entrySet()) {
+//				log.debug(String.format("%s -> %s", e.getKey(), e.getValue()));
+//			}
+//		}
+//	}
+//
+//	@Test
+//	public void test8SelectStudentByNoAssociation() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Student student = new Student();
+//
+//		student.setStudId(1);
+//		Student seletedStd = mapper.selectStudentByIdAssociation(student);
+//
+//		log.debug(seletedStd.toString());
+//	}
+//
+//	@Test
+//	public void test9InsertEnumStudent() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		Calendar newDate = GregorianCalendar.getInstance();
+//		newDate.set(1990, 2, 28);
+//		Student student = new Student();
+//		student.setStudId(3);
+//		student.setName("test");
+//		student.setEmail("test@test.co.kr");
+//		student.setDob(newDate.getTime());
+//		student.setPhone(new PhoneNumber("010-1234-5678"));
+//		student.setGender(Gender.MALE);
+//		int res1 = mapper.insertEnumStudent(student);
+//		Assert.assertEquals(1, res1);
+//////	mapper.deleteStudent(4)
+//////	mapper.deleteStudent(5) 이거는 스튜던트매퍼에!!
+//	}
 
-		Student student = new Student();
-		student.setStudId(1);
-		Student selectStudent = mapper.selectStudentById(student);
-		log.debug(selectStudent.toString());
+	@Test
+	public void test10SelectStudentByMap() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Map<String, String> maps = new HashMap<>();
+		maps.put("name", "Timothy");
+		maps.put("email", "timothy@gamil.com");
+		Student student = mapper.selectStudentByMap(maps);
 		Assert.assertNotNull(student);
+		log.debug(student.toString());
+
+		maps.remove("email");
+		student = mapper.selectStudentByMap(maps);
+		log.debug(student.toString());
+
+		maps.clear();
+		maps.put("email", "timothy@gamil.com");
+		student = mapper.selectStudentByMap(maps);
+		log.debug(student.toString());
+
 	}
 
 	@Test
-	public void test02selectStudentByIdwithResultMap() {
+	public void test11SelectAllStudentByMap() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		Student student = new Student();
-		student.setStudId(1);
-
-		Student selectedStd = mapper.selectStudentByIdWithResultMap(student);
-		log.debug(selectedStd.toString());
-		Assert.assertNotNull(student);
-
-	}
-
-	@Test
-	public void test03SelectStudentByAll() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		List<Student> list = mapper.selectStudentByAll();
+		Map<String, String> maps = new HashMap<>();
+		maps.put("name", "Timothy");
+		maps.put("email", "timothy@gmail.com");
+		List<Student> list = mapper.selectAllStudentByMap(maps);
 		Assert.assertNotNull(list);
 		list.stream().forEach(System.out::println);
-
-	}
-
-	@Test
-	public void test04InsertStudent() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990, 2, 28);
-		Student student = new Student();
-		student.setStudId(3);
-		student.setName("홍길동3");
-		student.setEmail("lee@test.co.kr");
-		student.setPhone(new PhoneNumber("010-1234-1234"));
-		student.setDob(newDate.getTime());
-		int res = mapper.insertStudent(student);
-		Assert.assertEquals(1, res);
-	}
-
-	@Test
-	public void test6DeleteStudent() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		int deleteStudent = mapper.deleteStudent(3);
-		Assert.assertSame(1, deleteStudent);
-
-	}
-
-	@Test
-	public void test5UpdateStudent() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		Student student = new Student();
-		student.setStudId(1);
-		student.setName("Timothy");
-		student.setEmail("test@test.co.kr");
-		student.setPhone(new PhoneNumber("987-654-3211"));
-		student.setDob(new Date());
-		int result = mapper.updateStudent(student);
-		Assert.assertSame(1, result);
-		student.setEmail("timothy@gmail.com");
-		student.setPhone(new PhoneNumber("123-123-1234"));
-		student.setDob(new GregorianCalendar(1988, 04, 25).getTime());
-		result = mapper.updateStudent(student);
-		Assert.assertSame(1, result);
-
-	}
-
-	@Test
-	public void test7SelectStudentByAllForHashMap() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		List<Map<String, Object>> list = mapper.selectStudentByAllForHashMap();
-		Assert.assertNotNull(list);
-		for (Map<String, Object> map : list) {
-			for (Entry<String, Object> e : map.entrySet()) {
-				log.debug(String.format("%s -> %s", e.getKey(), e.getValue()));
-			}
-		}
-	}
-
-	@Test
-	public void test8SelectStudentByNoAssociation() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-
-		Student student = new Student();
-
-		student.setStudId(1);
-		Student seletedStd = mapper.selectStudentByIdAssociation(student);
-
-		log.debug(seletedStd.toString());
-	}
-
-	@Test
-	public void test9InsertEnumStudent() {
-		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
 		
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990,2,28);
-		Student student = new Student();
-		student.setStudId(3);
-		student.setName("test");
-		student.setEmail("test@test.co.kr");
-		student.setDob(newDate.getTime());
-		student.setPhone(new PhoneNumber("010-1234-5678"));
-		student.setGender(Gender.MALE);
-		int res1 = mapper.insertEnumStudent(student);
-		Assert.assertEquals(1, res1);
+		maps.remove("email");
+		list = mapper.selectAllStudentByMap(maps);
+		list.stream().forEach(System.out::println);
+
 		
+		maps.clear();
+		maps.put("email", "timothy@gmail.com");
+		list = mapper.selectAllStudentByMap(maps);
+		list.stream().forEach(System.out::println);
+
+		maps.clear();
+		list = mapper.selectAllStudentByMap(maps);
+		list.stream().forEach(System.out::println);
 	}
 
 }

@@ -101,8 +101,7 @@ public class UserPicMapperTest {
 //		int res = mapper.deleteUserPic(2);
 //		Assert.assertEquals(1, res);
 //		
-////		mapper.deleteStudent(4)
-////		mapper.deleteStudent(5) 이거는 스튜던트매퍼에!!
+
 //
 //	}
 

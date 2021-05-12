@@ -118,4 +118,42 @@
 	</insert>
 
 
+
+	<sql id="where_name_email">
+		<where>
+			<if test="name != null">
+				name = #{name}
+			</if>
+			<if test="email != null">
+				AND email = #{email}
+			</if>
+		</where>
+	</sql>
+
+
+
+	<resultMap type="Student" id="StudentGenderResult"
+		extends="StudentResult"><!-- 젠더 빼기 -->
+		<result property="gender" column="gender" />
+
+	</resultMap>
+
+	<select id="selectStudentByMap" parameterType="map"
+		resultMap="StudentGenderResult">
+		<include refid="selectSQL"></include>
+		<include refid="where_name_email"></include>
+	</select>
+
+	<select id="selectAllStudentByMap" parameterType="map"
+		resultMap="StudentGenderResult">
+		<include refid="selectSQL"></include>
+		<include refid="where_name_email"></include>
+	</select>
+
+	<!-- ResultSet 처리방식 의 재정의 -->
+	<select id="selectStudentForMap" parameterType="int"
+		resultMap="StudentResult"><!-- 파라미터 타입 Student에서 int로 바까줌 -->
+		<include refid="selectSQL" />
+		<include refid="whereSQL" />
+	</select>
 </mapper>
