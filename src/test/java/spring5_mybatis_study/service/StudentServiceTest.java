@@ -1,4 +1,4 @@
-package spring5_mybatis_study.service.impl;
+package spring5_mybatis_study.service;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -39,7 +39,7 @@ public class StudentServiceTest {
 		Map<Integer, String> map = service.selectStudentForMap(1);
 
 		Assert.assertNotNull(map);
-
+		System.out.println("map>>>>"+map);
 		for (Entry<Integer, String> entry : map.entrySet()) {
 			System.out.printf("key(%s) - value(%s)%n", entry.getKey(), entry.getValue());
 		}

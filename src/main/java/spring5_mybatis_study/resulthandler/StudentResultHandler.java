@@ -22,6 +22,7 @@ public class StudentResultHandler implements ResultHandler<Student> {
 	public void handleResult(ResultContext<? extends Student> resultContext) {
 		Student student = resultContext.getResultObject();
 		map.put(student.getStudId(),student.getName());
+		System.out.println(student.getStudId());
 	}
 
 }
