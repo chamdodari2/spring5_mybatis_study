@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring5_mybatis_study.mapper.UserPicMapper">
+	<insert id="insertUserPic">
+		insert into
+		user_pics(
+		id, 
+		name,
+		pic,
+		bio)
+		values (
+		#{id},
+		#{name},
+		 #{pic},
+		  #{bio} )
+	</insert>
+	<select id="getUserPic"  resultType="UserPic"> <!-- 왜 파라미터타입,리절트타입 없어도되냐! 인터페이스에 맵핑되어있기때문에 그대로 따라간다 -->
+		select
+		id,
+		name,
+		pic,
+		bio
+		from user_pics
+		where id=#{id}
+
+	</select>
+
+	<delete id="deleteUserPic">
+		delete
+		from user_pics
+		where id=#{id}
+	</delete>
+
+
+</mapper>

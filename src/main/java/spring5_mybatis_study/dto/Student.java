@@ -10,6 +10,7 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 		private PhoneNumber phone;
 		private Date dob;
 		private Address address;
+		private Gender gender;
 		
 		
 		
@@ -98,9 +99,29 @@ public class Student { // db에서는 여러학생정보가 한테이블에 들�
 
 
 
-		//setter and getter method
+		public Gender getGender() {
+			return gender;
+		}
+
+
+
+
+		public void setGender(Gender gender) {
+			this.gender = gender;
+		}
+
+
+
+
 		@Override
 		public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s %s]", studId, name, email,dob, phone,address);
+			return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s, address=%s, gender=%s]",
+					studId, name, email, phone, dob, address, gender==Gender.FEMALE?"여자":(gender==Gender.MALE?"남자":"없음"));
 		}
+
+
+
+
+		//setter and getter method
+		
 }

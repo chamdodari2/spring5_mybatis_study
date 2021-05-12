@@ -19,7 +19,11 @@ public interface StudentMapper {
 	int updateStudent(Student student);
 
 	List<Map<String, Object>> selectStudentByAllForHashMap();
-	
+
 	Student selectStudentByIdAssociation(Student student);
+
+	int insertEnumStudent(Student student);
+	
+	
 
 }

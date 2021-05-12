@@ -67,3 +67,16 @@ on mybatis_study.*
 to 'user_mybatis_study'@'%'
 identified by 'rootroot';
 
+
+/*성별 칼럼 추가*/
+
+alter table students add gender tinyint unsigned;
+
+/*longblob, longtext*/
+create table user_pics( id int(11) not null auto_increment COMMENT 'id',
+name varchar(50) not null COMMENT 'name',
+pic longblob COMMENT 'pic',
+bio longtext collate utf8_unicode_ci COMMENT 'bio',
+primary key (id) )
+
+

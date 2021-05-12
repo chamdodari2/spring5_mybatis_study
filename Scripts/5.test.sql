@@ -3,6 +3,9 @@ select * from course_enrollment ;
 select * from courses ;
 select * from tutors ;
 select * from students;
+select * from students;
+
+desc user_pics;
 
 
 select  stud_id, name, email, dob, phone  from students  where stud_id =1; /*이렇게 검ㅅ개하면 dto에서 쪼개져있는데 ㅎsql에서 한번에보겧가ㅣ*/
@@ -21,7 +24,7 @@ on s.addr_id =a.addr_id
 where stud_id=1;
 
 
-/**/
+/* 교수가 강의하고있는 과목정보 출력*/
 select
 	t.tutor_id,
 	t.name as tutor_name,
@@ -37,3 +40,9 @@ left outer join courses c on
 	t.tutor_id = c.tutor_id
 where
 	t.tutor_id = 1;
+	
+
+/**/
+select * from user_pics;
+
+

@@ -9,12 +9,12 @@
 		<result property="email" column="email" />
 
 		<collection property="courses"
-			resultMap="spring5_mybatis_study.mapper.CoursMapper.ResCourse" />
+			resultMap="spring5_mybatis_study.mapper.CoursMapper.ResCourse" /> <!-- dto에서 course(과목명)은 db에서 바로가져오는게 아니라 과목dto에 있는걸 가져올거라서 해당xml주소+id 적어주기  -->
 	</resultMap>
 
 
-	<!--impl 처럼 sql문  -->
-	<select id="selectTutorByTutorId" resultMap="resTutor">
+	<!--impl 처럼 sql문 -->
+	<select id="selectTutorByTutorId" resultMap="resTutor"><!-- 테스트에서 해당 메서드를 실행하면 id= resTutor로 되어있는것을 수행하여 담아서 전송-->
 		select t.tutor_id,
 		t.name as tutor_name, email, c.course_id,
 		c.name,

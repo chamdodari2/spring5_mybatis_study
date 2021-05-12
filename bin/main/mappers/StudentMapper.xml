@@ -98,4 +98,24 @@
 		stud_id=#{studId};
 	</select>
 
+	<!-- enum type 다루기 -->
+	<insert id="insertEnumStudent">
+		insert into
+		students(
+		stud_id,
+		name,
+		email,
+		phone,
+		dob,
+		gender)
+		values(
+		#{studId},
+		#{name},
+		#{email},
+		#{phone},
+		#{dob},
+		#{gender})
+	</insert>
+
+
 </mapper>
