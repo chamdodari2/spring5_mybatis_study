@@ -23,7 +23,7 @@
 
 	</select>
 
-
+<!-- 여기서 _id 부분 달라서 안된적있다!! -->
 	<resultMap type="Student" id="stdResult">
 		<id column="stud_id" property="studId" />   <!-- db상 컬럼이름안 stud_id를 studId에 넣어조 -->
 		<result column="f" property="phone.countryCode" />

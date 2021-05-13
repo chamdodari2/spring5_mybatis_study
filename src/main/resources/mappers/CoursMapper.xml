@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="spring5_mybatis_study.mapper.CoursMapper"><!-- 인터페이스가 있는 패키지명.현재파일명 적어주기 -->
+<mapper namespace="spring5_mybatis_study.mapper.CourseMapper"><!-- 인터페이스가 있는 패키지명.+ 인터페이스명 적어주기 적어주기 -->
 
-	<resultMap type="Course" id="ResCourse"> <!--type:해당dto명, id=작명  -->
+	<resultMap type="Course" id="ResCourse"> <!--type:해당dto명, id=작명 -->
 		<id property="courseId" column="course_id" /> <!-- 키와 벨류로 가져올건디 dto에 있는 변수명은 courseId, db에 있는 칼럼명은 course_id -->
 		<result property="name" column="name" />
 		<result property="description" column="description" />
@@ -10,4 +10,96 @@
 		<result property="endDate" column="end_date" />
 
 	</resultMap>
+
+	<!-- 161쪽 where 조건 방법1 &gt, %lt -->
+
+	<sql id="selectSQL">
+		select course_id, name, description,
+		start_date, end_date,
+		tutor_id
+		from
+		courses
+	</sql>
+
+	<sql id="whereSQL">
+		<where>
+			<if test="tutorId !=null">
+				and tutor_id = #{tutorId}
+			</if>
+			<if test="name != null">
+				and name like #{name}
+			</if>
+			<if test="startDate != null">
+				and start_date &gt;= #{startDate}
+			</if>
+			<if test="endDate != null">
+				and end_date &lt;= #{endDate}
+			</if>
+
+		</where>
+	</sql>
+	<sql id="whereSQL2">
+
+		<where>
+			<if test="tutorId != null">
+				<![CDATA[ and tutor_id = #{tutorId} ]]>
+			</if>
+			<if test="courseName != null">
+				<![CDATA[ and name like #{courseName} ]]> <!-- 얘는 테스트에서 넣어준 map의 get key이므로, 테스트에서 넣어준값을 가져오는거라 dto에 선언된 칼럼명과는 상관없다 -->
+			</if>
+			<if test="startDate != null">
+				<![CDATA[ and start_date >= #{startDate} ]]>
+			</if>
+			<if test="endDate != null">
+				<![CDATA[ and end_date <= #{endDate} ]]>
+			</if>
+		</where>
+	</sql>
+
+
+
+<!--  얘는  지금 안쓸거라서 id 바꿔놨당! 위에 작성해놓은 sql문을  인클루드하지않고  바로 검색하는 방법이다! 동일한 sql문 여러번 안쓸거면 이렇게 바로 적어줘도 편하다!-->
+	<select id="selectCoursesByCondition2" parameterType="map"
+		resultMap="ResCourse">
+		select course_id, name, description, start_date, end_date, tutor_id
+		from
+		courses
+		<where>
+			<if test="tutorId != null"> and tutor_id = #{tutorId} </if>
+			<if test="courseName != null"> and name like #{courseName} </if>
+			<if test="startDate != null"> and start_date &gt;= #{startDate} </if>
+			<if test="endDate != null">
+				and end_date &lt;= #{endDate} </if>
+		</where>
+		<!-- 인클루드 해도 되는데 위로 올려보기 불편하니까 바로 치는게 나을수도 있다! 원래는 셀렉트 안에 id=메서드명 인클루드해서 
+			위에id 적어주기만 하면 된다. -->
+	</select>
+	<!-- 동적SQL - choose 조건 -->
+	<select id="selectCaseCourses" parameterType="map"
+		resultMap="ResCourse">
+		<include refid="selectSQL" />
+		<choose>
+			<when test="searchBy=='Tutor'">
+				where tutor_id=#{tutorId}
+			</when>
+			<when test="searchBy=='CourseName'">
+				where name like #{courseName}
+			</when>
+			<otherwise>
+				where end_date &gt;=now()
+			</otherwise>
+		</choose>
+	</select>
+	<select id="selectCoursesByCondition" parameterType="map"
+		resultMap="ResCourse">
+		<include refid="selectSQL" />
+		<include refid="whereSQL" />
+	</select>
+
+
+	<select id="selectWhereCourses" parameterType="map"
+		resultMap="ResCourse">
+		<include refid="selectSQL" />
+		<include refid="whereSQL2" />
+	</select>
 </mapper>

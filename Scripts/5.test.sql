@@ -45,4 +45,23 @@ where
 /**/
 select * from user_pics;
 
+/*ppt 159쪽~  검색조건 주기 where로*/
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where course_id=1;
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where name like '%java%';
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where start_date >='2013-02-01';
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where end_date <='2013-07-01';
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where start_date >='2013-02-01' and end_date <='2013-07-01';
+
+
+
 
