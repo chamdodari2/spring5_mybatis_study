@@ -62,6 +62,27 @@ where end_date <='2013-07-01';
 select course_id, name, description, start_date, end_date, tutor_id from courses
 where start_date >='2013-02-01' and end_date <='2013-07-01';
 
+/* forEㅁch와  ㄱ밭다*/
+
+select course_id, name, description, start_date, end_date, tutor_id from courses
+where course_id in (1,2); /*여기서 매개변수 여러개 넣기 해보기!! 괄호도 같이넣어저ㅜ야한다*/
+
+insert  () () ()  
+insert into courses (course_id,name,description,start_date,end_date,tutor_id) values 1,2,3,4,5,6,)
+
+
+select * from courses;
+
+
+INSERT INTO courses
+(name, description, start_date, end_date, tutor_id)
+VALUES(8,'test', 'test', '2013-03-01','2013-03-01', 1);
+
+INSERT INTO COURSES (COURSE_ID,NAME,DESCRIPTION,START_DATE,END_DATE,TUTOR_ID) VALUES
+(11,'Quickstart Core Java','Core Java Programming','2013-03-01','2013-04-15',1);
+
+DELETE FROM courses
+WHERE course_id in (8,7,6);
 
 
 

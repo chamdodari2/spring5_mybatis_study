@@ -1,5 +1,7 @@
 package spring5_mybatis_study.mapper;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -20,6 +22,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring5_mybatis_study.config.ContextRoot;
 import spring5_mybatis_study.dto.Course;
+import spring5_mybatis_study.dto.PhoneNumber;
+import spring5_mybatis_study.dto.Student;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ContextRoot.class })
@@ -101,11 +105,102 @@ public class CourseMapperTest {
 		map.put("tutorId", 1);
 		list = mapper.selectWhereCourses(map);
 		list.stream().forEach(System.out::println);
-		
+
 		map.clear();
 		map.put("endDate", new Date());
 		list = mapper.selectWhereCourses(map);
 		list.stream().forEach(System.out::println);
+	}
+
+	@Test
+	public void test06selectTrimCourses() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Course> list = mapper.selectTrimCourses(map);
+		Assert.assertNotNull(list);
+		list.stream().forEach(System.out::println);
+
+		map.put("tutorId", 1);
+		list = mapper.selectTrimCourses(map);
+		Assert.assertNotNull(list);
+		list.stream().forEach(System.out::println);
+
+		map.clear();
+		map.put("courseName", "%Java%");
+		System.out.println("과목명에 들어가냐 이단어 >> " + map);
+		list = mapper.selectTrimCourses(map);
+		System.out.println("map>>>" + list);
+		Assert.assertNotNull(list);
+		list.stream().forEach(System.out::println);
+
+		map.clear();
+		map.put("tutorId", 1);
+		list = mapper.selectTrimCourses(map);
+		Assert.assertNotNull(list);
+		list.stream().forEach(System.out::println);
+	}
+
+	@Test
+	public void test07SelectCoursesForeachByTutors() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+
+		List<Integer> tutorIds = new ArrayList<Integer>();
+		tutorIds.add(1);
+		tutorIds.add(2);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tutorIds", tutorIds);
+
+		List<Course> list = mapper.selectCourseForeachByTutors(map);
+		Assert.assertNotNull(list);
+		list.stream().forEach(System.out::println);
+
+	}
+
+//	@Test
+//	public void test08insertCourses() {
+//		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+//
+//		List<Course> tutors = new ArrayList<Course>();
+//
+//		tutors.add(new Course(17, "mysql", "database", new Date(), new Date(), 1));
+//		tutors.add(new Course(18, "mysql", "database", new Date(), new Date(), 1));
+//		tutors.add(new Course(19, "mariaDb", "database", new Date(), new Date(), 2));
+//		System.out.println("tutors >>> " + tutors);
+//		Map<String, Object> map = new HashMap<String, Object>();
+//
+//		map.put("tutors", tutors);
+//		System.out.println("map>>>" + map);
+//		int res = mapper.insertCourses(map);
+//		Assert.assertEquals(3, res);
+//	}
+
+	@Test
+	public void test09DeleteCourses() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+
+		List<Integer> courseIds = Arrays.asList(4, 12, 13);// 외래키걸려있어서 쓰고있는 앞번호는 지울수없당..
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("courseIds", courseIds);
+		System.out.println("map>> " + map);
+		int res = mapper.deleteCourses(map);
+		Assert.assertEquals(3, res);
+	}
+
+	@Test
+	public void test14UpdateSetStudent() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Student student = new Student();
+		student.setStudId(1);
+		student.setPhone(new PhoneNumber("987-654-3211"));
+		student.setDob(new Date());
+		int result = mapper.updateSetStudent(student);
+		Assert.assertSame(1, result);
+		student.setPhone(new PhoneNumber("123-123-1234"));
+		student.setDob(new GregorianCalendar(1988, 04, 25).getTime());
+		result = mapper.updateSetStudent(student);
+		Assert.assertSame(1, result);
 	}
 
 }
