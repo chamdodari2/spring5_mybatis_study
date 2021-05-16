@@ -6,7 +6,8 @@ select * from students;
 select * from students;
 
 desc user_pics;
-
+delete from tutors where tutor_id =5;
+delete from courses where course_id in(14,15,16,17,18,19);
 
 select  stud_id, name, email, dob, phone  from students  where stud_id =1; /*이렇게 검ㅅ개하면 dto에서 쪼개져있는데 ㅎsql에서 한번에보겧가ㅣ*/
 /* 전화번호 쪼개서 보기 */
@@ -85,4 +86,18 @@ DELETE FROM courses
 WHERE course_id in (8,7,6);
 
 
+/*insert tutor*/
+insert into tutors(tutor_id, name, email,phone,addr_id)
+values (5,'kim','test@naver.com','111-111-1111',1);
 
+/* delete tutor*/
+ delete from tutors where tutor_id =5;
+ 
+select t.tutor_id,
+		t.name as tutor_name, email, c.course_id,
+		c.name,
+		description,
+		start_date, end_date
+		from tutors t left outer join
+		courses c on
+		t.tutor_id=c.tutor_id;

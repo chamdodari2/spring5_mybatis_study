@@ -8,10 +8,38 @@ public class Tutor {
 	private String email;
 	private Address address;
 	private List<Course> courses; //교수가 주사용테이블이어서
+	private PhoneNumber phone;
+	
+	//
+
+		
 
 	public int getTutorId() {
 		return tutorId;
 	}
+
+	
+
+
+
+
+
+	public Tutor() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Tutor(int tutorId, String name, String email,PhoneNumber phone, Address address) {
+		super();
+		this.tutorId = tutorId;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.phone = phone;
+	}
+
+
+
+
 
 	public void setTutorId(int tutorId) {
 		this.tutorId = tutorId;
@@ -49,8 +77,32 @@ public class Tutor {
 		this.courses = courses;
 	}
 
+
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+
+
+
+
+
+
+
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return String.format("Tutor [%s, %s, %s, %s, %s]", tutorId, name, email, address, courses);
+		return String.format("Tutor [tutorId=%s, name=%s, email=%s, address=%s, courses=%s, phone=%s]", tutorId, name,
+				email, address, courses, phone.getNumber());
 	}
+
+
 }

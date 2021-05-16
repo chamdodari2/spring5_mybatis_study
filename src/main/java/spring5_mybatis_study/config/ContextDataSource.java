@@ -8,12 +8,16 @@ import javax.sql.DataSource;
 import org.apache.ibatis.io.Resources;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-public class ContextDataSource {
+@EnableTransactionManagement
+public class ContextDataSource {  //트랜잭션 방법은 총 2개 있는데 우리는 애노테이션 사용하는 방법을 쓸것이다
 	
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
@@ -29,5 +33,10 @@ public class ContextDataSource {
 		}
 		return dataSource;
 	}
+	@Bean
+	public PlatformTransactionManager transactionManager() {  //여기의 데이터소스로 트랜잭션 관리할거다
+	return new DataSourceTransactionManager(dataSource());
+	}
+
 
 }
